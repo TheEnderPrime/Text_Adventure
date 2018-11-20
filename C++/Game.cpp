@@ -3,6 +3,7 @@
 #include <time.h>
 
 #include "Player.h"
+#include "ASCII.h"
 
 using namespace std;
 
@@ -13,7 +14,8 @@ int main ()
 {
     //srand(time(NULL));
 
-    Player David;
+    Player David; // creates the player
+    David.displayPlayerStats();
     
     return 0;
 }

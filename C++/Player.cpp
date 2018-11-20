@@ -5,139 +5,149 @@
 
 using namespace std;
 
+int MAX_NAME = 20;
+
 Player::Player()
 { 
-    cout << "Hello Player!" << endl; 
+    cout << "Hello Player! Create Your Character!" << endl; 
+    createCharacter();
 }
 
-Player::DisplayPlayerStats()
+void Player::displayPlayerStats()
 {
-    cout << "\nName: " << getName() << "\nHealth: " << getHealth() << "\nMana: " << getMana() << "\nAttack: " << getAttack() << "\nDefense: " << getDefense();
+    cout << "\nName: " << Name << "\nHealth: " << Health << "\nMana: " << Mana << "\nAttack: " << Attack << "\nDefense: " << Defense << endl;
 }
 
-Player::createCharacter()
+int Player::createCharacter() //gets name and class
 {
-    printf("What is your Name Adventurer! (%d characters or less): ", MAX_NAME-1);
-    fgets(Player->Name, MAX_NAME, stdin);
-    strtok(Player->Name, "\n"); //THIS GETS RID OF THE \n IN THE NAME AS TO MAKE IT STREAMLINED WITH THE OTHER NAMES
+    cout << "What is your Name Adventurer! (" << MAX_NAME-1 << " characters or less): " << endl;
+    cin >> Name;
+    //strtok(Player->Name, "\n"); //THIS GETS RID OF THE \n IN THE NAME AS TO MAKE IT STREAMLINED WITH THE OTHER NAMES
     
-    printf("\nAre You A? \n1. Warrior \n2. Ranger \n3. Wizard\n\n");
-    int status, temp;
+    cout << "\nAre You A? \n1. Warrior \n2. Ranger \n3. Wizard\n\n";
+
     int Selection;
-    printf("Choice: ");
-    status = scanf("%d", &Selection);   
-    
-    while(status!=1)
-    {
-        while((temp=getchar()) != EOF && temp != '\n')
-        {
-            printf("Error! Character Code Not Valid!\nChoice: ");
-            status = scanf("%d", &Selection);   
-        }
-    }
+    cout << "Choice: ";
+    cin >> Selection;
+
     if(Selection == 1)
     {
-        Player->Health = 50;
-        Player->Mana = 10;
-        Player->Attack = 20;
-        Player->Defense = 20;
-        Player->Gold = 0;
-        Player->Exp = 0;
+        Class = "Warrior";
+        Health = 50;
+        Mana = 10;
+        Attack = 20;
+        Defense = 20;
+        Gold = 0;
+        Exp = 0;
         return 50;
     }
     else if(Selection == 2)
     {
-        Player.setHealth = 40;
-        Player->Mana = 25;
-        Player->Attack = 15;
-        Player->Defense = 15;
-        Player->Gold = 0;
-        Player->Exp = 0;
+        Class = "Ranger";
+        Health = 40;
+        Mana = 25;
+        Attack = 15;
+        Defense = 15;
+        Gold = 0;
+        Exp = 0;
         return 40;
     }
     else if(Selection == 3)
     {
-        Player->Health = 25;
-        Player->Mana = 50;
-        Player->Attack = 25;
-        Player->Defense = 5;
-        Player->Gold = 0;
-        Player->Exp = 0;
+        Class = "Wizard";
+        Health = 25;
+        Mana = 50;
+        Attack = 25;
+        Defense = 5;
+        Gold = 0;
+        Exp = 0;
         return 25;
     }
-    else
+    else if(cin.fail()) // error checking for non integer entries
     {
-        printf("\nError! Character Choice Not Valid!\n");
-        createCharacter(Player);
+        cin.clear();
+        cin.ignore();
+        cout << "\nError! Character Choice Not Valid!\n";
+        createCharacter();
+    }
+    else // error checking for outside of range entries (not 1-3)
+    {
+        cout << "\nError! Character Choice Not Valid!\n";
+        createCharacter();
     }
 }
 
-// Player::setName(string x)
-// {
-//     Name = x;
-// }
+void Player::setName(string x)
+{
+    Name = x;
+}
 
-// Player::getName()
-// {
-//     return Name;
-// }
+string Player::getName()
+{
+    return Name;
+}
 
-// Player::setHealth(int x)
-// {
-//     Health = x;
-// }
+string Player::getClass()
+{
+    return Class;
+}
 
-// Player::getHealth()
-// {
-//     return Health;
-// }
+void Player::setHealth(int x)
+{
+    Health = x;
+}
 
-// Player::setMana(int x)
-// {
-//     Mana = x;
-// }
+int Player::getHealth()
+{
+    return Health;
+}
 
-// Player::getMana()
-// {
-//     return Mana;
-// }
+void Player::setMana(int x)
+{
+    Mana = x;
+}
 
-// Player::setAttack(int x)
-// {
-//     Attack = x;
-// }
+int Player::getMana()
+{
+    return Mana;
+}
 
-// Player::getAttack()
-// {
-//     return Attack;
-// }
+void Player::setAttack(int x)
+{
+    Attack = x;
+}
 
-// Player::setDefense(int x)
-// {
-//     Defense = x;
-// }
+int Player::getAttack()
+{
+    return Attack;
+}
 
-// Player::getDefense()
-// {
-//     return Defense;
-// }
+void Player::setDefense(int x)
+{
+    Defense = x;
+}
 
-// Player::setGold(int x)
-// {
-//     Gold = x;
-// }
+int Player::getDefense()
+{
+    return Defense;
+}
 
-// Player::getGold()
-// {
-//     return Gold;
-// }
+void Player::setGold(int x)
+{
+    Gold = x;
+}
 
-// Player::setExp(int x)
-// {
-//     Exp = x;
-// }
+int Player::getGold()
+{
+    return Gold;
+}
 
-// Player::getExp()
-// {
-//     return Exp;
-// }
+void Player::setExp(int x)
+{
+    Exp = x;
+}
+
+int Player::getExp()
+{
+    return Exp;
+}

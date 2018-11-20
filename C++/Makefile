@@ -1,8 +1,8 @@
 CFLAGS = -O
 CC = g++
 
-all: Game.o Player.o
-	$(CC) $(CFLAGS) -o all Game.o Player.o
+Play: Game.o Player.o
+	$(CC) $(CFLAGS) -o Play Game.o Player.o
 
 Game.o: Game.cpp
 	$(CC) $(CFLAGS) -c Game.cpp
