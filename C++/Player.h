@@ -22,6 +22,8 @@ class Player
 
         int createCharacter();
         
+
+        // get set
         void setName(std::string x);
 
         std::string getName();

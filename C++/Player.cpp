@@ -15,7 +15,7 @@ Player::Player()
 
 void Player::displayPlayerStats()
 {
-    cout << "\nName: " << Name << "\nHealth: " << Health << "\nMana: " << Mana << "\nAttack: " << Attack << "\nDefense: " << Defense << endl;
+    cout << "\nName: " << Name << "\nHealth: " << Health << "\nMana: " << Mana << "\nAttack: " << Attack << "\nDefense: " << Defense << "\n";
 }
 
 int Player::createCharacter() //gets name and class
@@ -77,6 +77,9 @@ int Player::createCharacter() //gets name and class
     }
 }
 
+
+
+// get set
 void Player::setName(string x)
 {
     Name = x;

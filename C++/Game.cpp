@@ -14,8 +14,11 @@ int main ()
 {
     //srand(time(NULL));
 
-    Player David; // creates the player
-    David.displayPlayerStats();
+    ASCII ascii;
+    Player player; // creates the player
+
+    ascii.Welcome();    
+    player.displayPlayerStats();
     
     return 0;
 }
